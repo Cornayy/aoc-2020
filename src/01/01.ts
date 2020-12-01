@@ -2,33 +2,30 @@ import { getInput } from './../util/parser';
 
 export class Day1 {
     private static expenses = getInput('./src/01/input.txt');
+    private static values = new Set<number>(Day1.expenses);
 
     static solveA(): number {
         for (const expense of Day1.expenses) {
-            if (expense >= 2020) continue;
-            for (const check of Day1.expenses) {
-                if (expense + check === 2020) {
-                    return expense * check;
-                }
+            const rest = 2020 - expense;
+            if (Day1.values.has(rest)) {
+                return expense * rest;
             }
         }
 
-        return 0;
+        throw new Error('The two values that should lead up to 2020 have not been found.');
     }
 
     static solveB(): number {
         for (const expense of Day1.expenses) {
             if (expense >= 2020) continue;
             for (const check of Day1.expenses) {
-                if (expense + check > 2020) continue;
-                for (const third of Day1.expenses) {
-                    if (expense + check + third === 2020) {
-                        return expense * check * third;
-                    }
+                const rest = 2020 - expense - check;
+                if (Day1.values.has(rest)) {
+                    return expense * check * rest;
                 }
             }
         }
 
-        return 0;
+        throw new Error('The three values that should lead up to 2020 have not been found.');
     }
 }
