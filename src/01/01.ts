@@ -1,13 +1,20 @@
-import { getInput } from './../util/parser';
+import { IReader } from './../util/IReader';
+import { Day } from '../Day';
 
-export class Day1 {
-    private static expenses = getInput('./src/01/input.txt');
-    private static values = new Set<number>(Day1.expenses);
+export class Day1 extends Day {
+    private readonly expenses: number[];
+    private readonly values: Set<number>;
 
-    static solveA(): number {
-        for (const expense of Day1.expenses) {
+    constructor(reader: IReader, path: string) {
+        super(reader, path);
+        this.expenses = this.input.map((entry) => parseInt(entry));
+        this.values = new Set<number>(this.expenses);
+    }
+
+    public solveA(): number {
+        for (const expense of this.expenses) {
             const rest = 2020 - expense;
-            if (Day1.values.has(rest)) {
+            if (this.values.has(rest)) {
                 return expense * rest;
             }
         }
@@ -15,11 +22,11 @@ export class Day1 {
         throw new Error('The two values that should lead up to 2020 have not been found.');
     }
 
-    static solveB(): number {
-        for (const expense of Day1.expenses) {
-            for (const check of Day1.expenses) {
+    public solveB(): number {
+        for (const expense of this.expenses) {
+            for (const check of this.expenses) {
                 const rest = 2020 - expense - check;
-                if (Day1.values.has(rest)) {
+                if (this.values.has(rest)) {
                     return expense * check * rest;
                 }
             }
