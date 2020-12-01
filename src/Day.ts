@@ -1,4 +1,4 @@
-import { IReader } from './util/IReader';
+import { IReader } from './parsing/IReader';
 
 export abstract class Day {
     protected readonly input: string[];

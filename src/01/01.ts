@@ -1,4 +1,4 @@
-import { IReader } from './../util/IReader';
+import { IReader } from '../parsing/IReader';
 import { Day } from '../Day';
 
 export class Day1 extends Day {

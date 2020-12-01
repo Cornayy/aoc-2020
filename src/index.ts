@@ -1,4 +1,4 @@
-import { LocalReader } from './util/LocalReader';
+import { LocalReader } from './parsing/LocalReader';
 import { Day1 } from './01/01';
 
 const reader = new LocalReader();
