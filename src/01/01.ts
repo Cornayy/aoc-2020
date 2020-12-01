@@ -1,13 +1,7 @@
-import { readFileSync } from 'fs';
+import { getInput } from './../util/parser';
 
 export class Day1 {
-    private static expenses = Day1.getExpenses();
-
-    static getExpenses(): number[] {
-        return readFileSync('./src/day-1/input.txt', 'utf-8')
-            .split('\n')
-            .map((entry) => parseInt(entry));
-    }
+    private static expenses = getInput('./src/01/input.txt');
 
     static solveA(): number {
         for (const expense of Day1.expenses) {
