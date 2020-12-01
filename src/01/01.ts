@@ -17,7 +17,6 @@ export class Day1 {
 
     static solveB(): number {
         for (const expense of Day1.expenses) {
-            if (expense >= 2020) continue;
             for (const check of Day1.expenses) {
                 const rest = 2020 - expense - check;
                 if (Day1.values.has(rest)) {
