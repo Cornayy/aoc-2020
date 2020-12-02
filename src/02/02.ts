@@ -22,6 +22,16 @@ export class Day2 extends Day {
     }
 
     public solveB(): number {
-        throw new Error('Method not implemented.');
+        return this.input
+            .map((pw) => {
+                const [range, character, password] = pw.split(' ');
+                const [min, max] = range.split('-');
+                const validFirst = password.charAt(parseInt(min) - 1) === character.charAt(0);
+                const validSecond = password.charAt(parseInt(max) - 1) === character.charAt(0);
+
+                if ((!validFirst && validSecond) || (validFirst && !validSecond)) return 1;
+            })
+            .filter((pw) => pw)
+            .reduce((a, b) => a + b);
     }
 }
