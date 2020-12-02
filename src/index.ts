@@ -1,15 +1,14 @@
+import { Day2 } from './02/02';
 import { LocalReader } from './parsing/LocalReader';
-import { Day1 } from './01/01';
 
 const reader = new LocalReader();
 
 try {
-    const day = new Day1(reader, './src/01/input.txt');
+    const day = new Day2(reader, './src/02/input.txt');
     const a = day.solveA();
-    const b = day.solveB();
 
     console.log(a);
-    console.log(b);
+    //console.log(b);
 } catch (err) {
     console.error(err);
 }
