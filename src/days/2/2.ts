@@ -1,9 +1,9 @@
-import { IReader } from '../parsing/IReader';
-import { Day } from '../Day';
+import { IReader } from '../../parsing/IReader';
+import { Day } from '../../Day';
 
 export class Day2 extends Day {
-    constructor(reader: IReader, path: string) {
-        super(reader, path);
+    constructor(reader: IReader) {
+        super(reader, 2);
     }
 
     public solveA(): number {

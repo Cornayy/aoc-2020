@@ -1,3 +1,3 @@
 export interface IReader {
-    read(path: string): string[];
+    read(day: number): string[];
 }

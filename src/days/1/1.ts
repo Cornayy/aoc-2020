@@ -1,12 +1,12 @@
-import { IReader } from '../parsing/IReader';
-import { Day } from '../Day';
+import { IReader } from '../../parsing/IReader';
+import { Day } from '../../Day';
 
 export class Day1 extends Day {
     private readonly expenses: number[];
     private readonly values: Set<number>;
 
-    constructor(reader: IReader, path: string) {
-        super(reader, path);
+    constructor(reader: IReader) {
+        super(reader, 1);
         this.expenses = this.input.map((entry) => parseInt(entry));
         this.values = new Set<number>(this.expenses);
     }

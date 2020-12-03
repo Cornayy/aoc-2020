@@ -3,8 +3,8 @@ import { IReader } from './parsing/IReader';
 export abstract class Day {
     protected readonly input: string[];
 
-    constructor(reader: IReader, path: string) {
-        this.input = reader.read(path);
+    constructor(reader: IReader, day: number) {
+        this.input = reader.read(day);
     }
 
     public abstract solveA(): number;
