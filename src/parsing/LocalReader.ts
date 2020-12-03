@@ -4,7 +4,8 @@ import { readFileSync } from 'fs';
 export class LocalReader implements IReader {
     public read(path: string): string[] {
         return readFileSync(path, 'utf-8')
+            .trim()
             .split('\n')
-            .filter((entry) => entry);
+            .map((l) => l.trim());
     }
 }
