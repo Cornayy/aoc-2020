@@ -9,8 +9,8 @@ interface Position {
 }
 
 interface Slope {
-    x: number;
-    y: number;
+    xSteps: number;
+    ySteps: number;
 }
 
 export class Day3 extends Day {
@@ -22,16 +22,16 @@ export class Day3 extends Day {
     }
 
     public solveA(): number {
-        return this.traverse({ x: 0, y: 0 }, { x: 3, y: 1 });
+        return this.traverse({ x: 0, y: 0 }, { xSteps: 3, ySteps: 1 });
     }
 
     public solveB(): number {
         const road = [
-            this.traverse({ x: 0, y: 0 }, { x: 1, y: 1 }),
-            this.traverse({ x: 0, y: 0 }, { x: 3, y: 1 }),
-            this.traverse({ x: 0, y: 0 }, { x: 5, y: 1 }),
-            this.traverse({ x: 0, y: 0 }, { x: 7, y: 1 }),
-            this.traverse({ x: 0, y: 0 }, { x: 1, y: 2 }),
+            this.traverse({ x: 0, y: 0 }, { xSteps: 1, ySteps: 1 }),
+            this.traverse({ x: 0, y: 0 }, { xSteps: 3, ySteps: 1 }),
+            this.traverse({ x: 0, y: 0 }, { xSteps: 5, ySteps: 1 }),
+            this.traverse({ x: 0, y: 0 }, { xSteps: 7, ySteps: 1 }),
+            this.traverse({ x: 0, y: 0 }, { xSteps: 1, ySteps: 2 }),
         ];
         return road.reduce((a, b) => a * b);
     }
@@ -39,8 +39,8 @@ export class Day3 extends Day {
     private traverse(position: Position, slope: Slope): number {
         let found = 0;
 
-        while ((position.y += slope.y) < this.input.length) {
-            position.x = (position.x + slope.x) % this.length;
+        while ((position.y += slope.ySteps) < this.input.length) {
+            position.x = (position.x + slope.xSteps) % this.length;
             if (this.input[position.y][position.x] === TREE) found++;
         }
 
