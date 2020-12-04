@@ -1,7 +1,7 @@
 import { IReader } from './parsing/IReader';
 
 export abstract class Day {
-    protected readonly input: string[];
+    protected input: string[];
 
     constructor(reader: IReader, day: number) {
         this.input = reader.read(day);
