@@ -8,4 +8,8 @@ export class LocalReader implements IReader {
             .split('\n')
             .map((l) => l.trim());
     }
+
+    public string(day: number): string {
+        return readFileSync(`./src/days/${day}/input.txt`, 'utf-8');
+    }
 }
