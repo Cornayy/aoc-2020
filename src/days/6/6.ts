@@ -34,7 +34,7 @@ export class Day6 extends Day {
                 let amount = 0;
 
                 for (const value of new Set<string>(answers)) {
-                    const occurences = this.getOccurences(answers, value);
+                    const occurences = this.getOccurrences(answers, value);
                     if (occurences === people.length) amount++;
                 }
 
@@ -43,7 +43,7 @@ export class Day6 extends Day {
             .reduce((a, b) => a + b);
     }
 
-    private getOccurences(space: string[], value: string): number {
+    private getOccurrences(space: string[], value: string): number {
         let occurences = 0;
         for (const entry of space) {
             if (entry === value) {
