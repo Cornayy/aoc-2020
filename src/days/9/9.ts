@@ -24,9 +24,7 @@ export class Day9 extends Day {
                 sum += numbers[j];
                 set.push(numbers[j]);
 
-                if (sum > culprit) {
-                    break;
-                } else if (sum === culprit) {
+                if (sum === culprit) {
                     return Math.min(...set) + Math.max(...set);
                 }
             }
@@ -37,7 +35,7 @@ export class Day9 extends Day {
         for (let i = this.preamble; i < this.input.length; i++) {
             const current = parseInt(this.input[i]);
             const other = this.input.slice(i - this.preamble, i).map((entry) => parseInt(entry));
-            const match = other.some((value) => (other.includes(current - value) ? true : false));
+            const match = other.some((value) => other.includes(current - value));
             if (!match) return current;
         }
     }
