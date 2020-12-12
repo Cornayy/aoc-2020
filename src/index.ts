@@ -1,10 +1,10 @@
-import { Day11 } from './days/11/11';
+import { Day12 } from './days/12/12';
 import { LocalReader } from './parsing/LocalReader';
 
 const reader = new LocalReader();
 
 try {
-    const day = new Day11(reader);
+    const day = new Day12(reader);
     const a = day.solveA();
     const b = day.solveB();
 
