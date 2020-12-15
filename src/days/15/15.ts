@@ -40,12 +40,8 @@ export class Day15 extends Day {
             lastSpoken = recent && prev ? recent - prev : 0;
             const check = mostRecent.get(lastSpoken);
 
-            if (check) {
-                previous.set(lastSpoken, check);
-                mostRecent.set(lastSpoken, currentTurn);
-            } else {
-                mostRecent.set(lastSpoken, currentTurn);
-            }
+            if (check) previous.set(lastSpoken, check);
+            mostRecent.set(lastSpoken, currentTurn);
         }
 
         return lastSpoken;
